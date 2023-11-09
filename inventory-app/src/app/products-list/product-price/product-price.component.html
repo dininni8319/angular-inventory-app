@@ -1,7 +1,9 @@
 <div>
-  <h5 class="text-xl text-center font-semibold tracking-tight text-gray-900 dark:text-white">{{ name }}</h5>
+  <div class="flex justify-around">
+    <h5 class="text-xl text-center font-semibold tracking-tight text-gray-900 dark:text-white">{{ name }}</h5>
+    <span class="text-lg font-bold text-gray-900 dark:text-white">${{ price }}</span>
+  </div>
   <div class="flex items-center justify-around">
-      <span class="text-lg font-bold text-gray-900 dark:text-white">${{ price }}</span>
       <app-product-department [department]="departement"></app-product-department>
   </div>
 </div>

@@ -1,5 +1,6 @@
 import { 
   Component,
+
 } from '@angular/core';
 import { Product } from './product.model'
 
@@ -24,8 +25,14 @@ export class AppComponent {
       new Product(
       'NICEHAT',
       'A Nice Black Hat', 'https://media.istockphoto.com/id/864713752/de/foto/baseball-m%C3%BCtze.jpg?s=1024x1024&w=is&k=20&c=tG5AOgc9DAy_yAC4kUzINhR_zaBOj7ZGdTGu4FxeSCM=', ['Men', 'Accessories', 'Hats'],
-      29.99)
-      ];
+      29.99),
+      new Product(
+        'MYSHOES',
+        'Nice an Warm',
+        'https://media.istockphoto.com/id/1249369867/de/foto/ein-paar-schuh-des-neuesten-trends.jpg?s=1024x1024&w=is&k=20&c=XEWxSi_X4u16R7kS1XDggDYUjbkXMkSqMDAitUjLAh4=',
+        ['Men', 'Shoes', 'Running Shoe'], 54.99
+      )
+    ]
   }
 
   productWasSelected(product: Product){

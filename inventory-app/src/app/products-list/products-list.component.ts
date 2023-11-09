@@ -2,7 +2,8 @@ import {
   Component, 
   Input,
   Output,
-  EventEmitter
+  EventEmitter,
+  HostBinding,
 } from '@angular/core';
 import { Product } from '../product.model'
 
@@ -13,31 +14,22 @@ import { Product } from '../product.model'
 })
 
 export class ProductsListComponent {
-  intialProduct: Product =  {
-    sku: '',
-    name: '',
-    price: 0,
-    imageUrl: '',
-    departement: [],
-  }
-
- @Input("item") product = this.intialProduct
- @Output() onProductSelected: EventEmitter<Product>
- currentProduct = this.intialProduct
-
- constructor() {
-  this.onProductSelected = new EventEmitter();
- }
+ @HostBinding('attr.class') cssClass = `
+    w-full max-w-sm 
+    bg-white border 
+    border-gray-200 
+    rounded-lg shadow
+    dark:bg-gray-800 dark:border-gray-700
+  `
+ @Input("item") product: Product | null = null
+ @Output() onProductSelected: EventEmitter<Product> = new EventEmitter()
+ 
+ currentProduct: Product | null = null
+ selected: boolean = false
 
  onClickedItem(selectedProduct: Product){
-  this.intialProduct = selectedProduct
+  this.currentProduct = selectedProduct
   this.onProductSelected.emit(selectedProduct);
- }
-
- isSelected(product: Product): boolean {
-  if (!this.product.sku || !this.currentProduct.sku) {
-    return false;
-  }
-  return this.product.sku === this.currentProduct.sku;
+  this.selected = !this.selected
  }
 }

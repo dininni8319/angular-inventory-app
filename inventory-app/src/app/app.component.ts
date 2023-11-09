@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { 
+  Component,
+} from '@angular/core';
 import { Product } from './product.model'
 
 @Component({
@@ -8,7 +10,7 @@ import { Product } from './product.model'
 })
 export class AppComponent {
   products: Product[]
-
+  
   constructor() {
     this.products = [
       new Product(

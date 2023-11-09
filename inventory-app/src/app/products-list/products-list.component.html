@@ -1,11 +1,17 @@
-<div class="p-5 border border-gray-300 rounded-lg">
-  <h3>{{ product.name}} <span>{{ product.sku }}</span></h3>
-  <div>
-      <span>{{ product.price | currency:'USD':true }}</span>
-      <img width="200px" height="200px" [src]="product.imageUrl" alt="product image">
-      <p>{{ product.departement }}</p>
-  </div>
-  <button (click)="onClickedItem(product)" class="bg-sky-400 p-2">
+<div
+  [class.selected]="product && selected"
+ >
+ <app-product-image [imageUrl]="product?.imageUrl"></app-product-image>
+ <app-product-price 
+    [name]="product?.name"
+    [price]="product?.price"
+    [departement]="product?.departement"
+  >
+    <a 
+      (click)="product && onClickedItem(product)" 
+      href="#" 
+      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
       Add to cart
-  </button>
+    </a>
+</app-product-price>
 </div>
